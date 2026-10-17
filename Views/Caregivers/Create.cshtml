@@ -1,0 +1,13 @@
+@model CaregiverDto
+<h2>Add Caregiver</h2>
+<form method="post">
+    <div class="row">
+        <div class="col-md-6 mb-3"><label>First Name</label><input asp-for="FirstName" class="form-control" required /></div>
+        <div class="col-md-6 mb-3"><label>Last Name</label><input asp-for="LastName" class="form-control" required /></div>
+        <div class="col-md-6 mb-3"><label>Email</label><input asp-for="Email" type="email" class="form-control" /></div>
+        <div class="col-md-6 mb-3"><label>Phone</label><input asp-for="Phone" class="form-control" /></div>
+        <div class="col-md-6 mb-3 form-check ms-2"><input asp-for="IsActive" class="form-check-input" /><label class="form-check-label">Active</label></div>
+    </div>
+    <button class="btn btn-primary">Save</button>
+    <a asp-action="Index" class="btn btn-secondary">Cancel</a>
+</form>

@@ -1,0 +1,25 @@
+@model IEnumerable<CaregiverDto>
+<div class="d-flex justify-content-between align-items-center mb-3">
+    <h2>Caregivers</h2>
+    <a class="btn btn-primary" asp-action="Create">Add Caregiver</a>
+</div>
+<table class="table table-striped">
+<thead><tr><th>Name</th><th>Email</th><th>Phone</th><th>Status</th><th></th></tr></thead>
+<tbody>
+@foreach (var item in Model)
+{
+<tr>
+<td>@item.FirstName @item.LastName</td>
+<td>@item.Email</td>
+<td>@item.Phone</td>
+<td>@(item.IsActive ? "Active" : "Inactive")</td>
+<td>
+<a class="btn btn-sm btn-outline-primary" asp-action="Edit" asp-route-id="@item.Id">Edit</a>
+<form asp-action="Delete" asp-route-id="@item.Id" method="post" class="d-inline">
+<button class="btn btn-sm btn-outline-danger" onclick="return confirm('Delete this caregiver?')">Delete</button>
+</form>
+</td>
+</tr>
+}
+</tbody>
+</table>

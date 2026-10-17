@@ -1,0 +1,22 @@
+@model VisitDto
+<h2>Schedule Visit</h2>
+<form method="post">
+<div class="row">
+<div class="col-md-6 mb-3"><label>Caregiver</label>
+<select asp-for="CaregiverId" class="form-select">
+<option value="">-- Select --</option>
+@foreach (var c in (IEnumerable<Caregiver>)ViewBag.Caregivers) { <option value="@c.Id">@c.FirstName @c.LastName</option> }
+</select></div>
+<div class="col-md-6 mb-3"><label>Patient</label>
+<select asp-for="PatientId" class="form-select">
+<option value="">-- Select --</option>
+@foreach (var p in (IEnumerable<Patient>)ViewBag.Patients) { <option value="@p.Id">@p.FirstName @p.LastName</option> }
+</select></div>
+<div class="col-md-6 mb-3"><label>Visit Date</label><input asp-for="VisitDate" type="datetime-local" class="form-control" /></div>
+<div class="col-md-6 mb-3"><label>Status</label>
+<select asp-for="Status" class="form-select"><option>Scheduled</option><option>Completed</option><option>Cancelled</option></select></div>
+<div class="col-md-12 mb-3"><label>Notes</label><textarea asp-for="Notes" class="form-control"></textarea></div>
+</div>
+<button class="btn btn-primary">Schedule</button>
+<a asp-action="Index" class="btn btn-secondary">Cancel</a>
+</form>

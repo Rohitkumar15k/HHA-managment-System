@@ -1,0 +1,14 @@
+@model PatientDto
+<h2>Edit Patient</h2>
+<form method="post">
+<input asp-for="Id" type="hidden" />
+<div class="row">
+<div class="col-md-6 mb-3"><label>First Name</label><input asp-for="FirstName" class="form-control" required /></div>
+<div class="col-md-6 mb-3"><label>Last Name</label><input asp-for="LastName" class="form-control" required /></div>
+<div class="col-md-6 mb-3"><label>Date of Birth</label><input asp-for="DateOfBirth" type="date" class="form-control" /></div>
+<div class="col-md-6 mb-3"><label>Phone</label><input asp-for="Phone" class="form-control" /></div>
+<div class="col-md-12 mb-3"><label>Address</label><textarea asp-for="Address" class="form-control"></textarea></div>
+</div>
+<button class="btn btn-primary">Update</button>
+<a asp-action="Index" class="btn btn-secondary">Cancel</a>
+</form>
